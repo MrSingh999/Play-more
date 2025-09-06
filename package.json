@@ -1,0 +1,12 @@
+{
+  "name": "playmore",
+  "version": "1.0.0",
+  "description": "Its a video streaming platform",
+  "license": "ISC",
+  "author": "Harjot Singh",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

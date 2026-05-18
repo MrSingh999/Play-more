@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema(
   {
-    id: { type: String, required: true, unique: true },
+    id: { type: String, unique: true },
 
     username: {
       type: String,
@@ -60,9 +60,9 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
 };
 
 userSchema.methods.generateRefreshToken = function () {
-  jwt.sign(
+  return jwt.sign(
     {
-      id: this._id,
+      _id: this._id,
       email: this.email,
       username: this.username,
       fullname: this.fullname,
@@ -73,9 +73,9 @@ userSchema.methods.generateRefreshToken = function () {
 };
 
 userSchema.methods.generateAccessToken = function () {
- return jwt.sign(
+  return jwt.sign(
     {
-      id: this._id,
+      _id: this._id,
       email: this.email,
       username: this.username,
       fullname: this.fullname,
